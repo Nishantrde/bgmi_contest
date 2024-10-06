@@ -1,6 +1,67 @@
-<!-- Inside team_form.html -->
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGMI Esports Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes buttonGlow {
+            0% {
+                box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            }
+        }
+
+        body {
+            background-image: url('https://source.unsplash.com/random/1920x1080?bgmi,esports');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-container {
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .glow-btn {
+            animation: buttonGlow 1.5s infinite alternate;
+        }
+    </style>
+</head>
+<body class="bg-black bg-opacity-80 text-white flex items-center justify-center min-h-screen">
+    <div class="form-container bg-gray-900 bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-sm transform transition duration-500 hover:scale-105">
+        <h1 class="text-4xl font-extrabold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 animate-pulse">
+            BGMI Esports Team
+        </h1>
+        <!-- Form Start -->
+        <form method="post" class="space-y-6">
+            {% csrf_token %}
+            <div class="space-y-4">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-5 rounded-lg shadow-lg transition duration-300 ease-in-out glow-btn">
+                Submit
+            </button>
+        </form>
+        <!-- Form End -->
+    </div>
+</body>
+</html>
