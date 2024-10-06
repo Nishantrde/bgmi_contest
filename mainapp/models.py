@@ -1,6 +1,6 @@
 from django.db import models
 
-class Team(models.Model):
+class BGMI_Team(models.Model):
     team_name = models.CharField(default="", max_length=100)
     player_1 = models.CharField(default="", max_length=100)
     player_2 = models.CharField(default="", max_length=100)
