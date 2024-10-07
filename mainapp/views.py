@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import TeamForm
 
 def index(request):
+    print(request.user)
+
     if request.method == 'POST':
         form = TeamForm(request.POST)
         if form.is_valid():

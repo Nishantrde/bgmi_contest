@@ -4,7 +4,7 @@ from .views import index
 app_name = 'mainapp'
 
 urlpatterns = [
-    path('',index),
+    path('',index, name="log"),
 ]
 
 
