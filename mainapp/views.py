@@ -13,3 +13,8 @@ def index(request):
         form = TeamForm()
 
     return render(request, 'index.html', {'form': form})
+
+
+def log_in(request):
+    return render(request, "login.html")
+
